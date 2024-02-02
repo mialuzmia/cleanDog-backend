@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 
 const getAllPetshops = async (req, res) => {
   try {
-    const result = await Petshop.find({});
-    if(!result){
+    const petshops = await Petshop.find({});
+    if(!petshops){
       return res.status(404).json({ message: 'no petshops were found in the database' })
     }
 
-    return res.status(200).json(result);
+    return res.status(200).json(petshops);
   } 
   catch(err) {
     return res.status(500).json({ message: err.message });
@@ -23,12 +23,12 @@ const getPetshopById = async (req, res) => {
   };
 
   try {
-    const result = await Petshop.findById(id);
-    if(!result){
+    const petshop = await Petshop.findById(id);
+    if(!petshop){
       return res.status(404).json({ message: 'petshop not found' })
     }
 
-    return res.status(200).json(result);
+    return res.status(200).json(petshop);
   } 
   catch (err) {
     console.log(err);
@@ -40,9 +40,9 @@ const addPetshop = async (req, res) => {
   
   try {
     const petshop = new Petshop(req.body);
-    const result = await petshop.save();
-    console.log('\n',result, '\n');
-    return res.status(200).json({ message: 'petshop added successfully', result });
+    const savedPetshop = await petshop.save();
+    console.log('\n',savedPetshop, '\n');
+    return res.status(200).json({ message: 'petshop added successfully', savedPetshop });
   } 
   catch(err) {
     console.log(err);
