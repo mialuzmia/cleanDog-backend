@@ -10,14 +10,14 @@ const app = express(); //initializes express app
 
 const dbURL = process.env.DATABASE_URL;
 
+const port = process.env.PORT || 3000;
+
 // connects to database
 const connectToDb = async () => {
-  const port = 3000;
-  const hostname = 'localhost';
   try {
     const result = await mongoose.connect(dbURL);
     console.log('\nconnected to db\n');
-    app.listen(port, hostname, () => console.log(`server running at http://${hostname}:${port}\n`));
+    app.listen(port, () => console.log(`server running on port ${port}\n`));
   } catch (err) {
     console.log(err);
   };
