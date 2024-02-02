@@ -1,0 +1,11 @@
+{
+  "name": "cleandog-backend",
+  "version": "1.0.0",
+  "description": "back-end do projeto cleanDog que armazena dados de petshops próximos e encontra a melhor opção para você",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mialuzmia",
+  "license": "ISC"
+}
