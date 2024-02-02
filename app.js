@@ -1,12 +1,14 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+require('dotenv').config();
+
 const Petshop = require('./models/petshops');
 const petshopRoutes = require('./routes/petshopRoutes');
 
 const app = express(); //initializes express app
 
-const dbURL = 'mongodb+srv://mialuz:IEZoflXlk1pFFd4Q@cluster0.37zpk8d.mongodb.net/cleanDog?retryWrites=true&w=majority'
+const dbURL = process.env.DATABASE_URL;
 
 // connects to database
 const connectToDb = async () => {
