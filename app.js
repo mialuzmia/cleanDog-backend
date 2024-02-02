@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const Petshop = require('./models/petshops');
 
 const app = express(); //initializes express app
 
