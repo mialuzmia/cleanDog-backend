@@ -1,15 +1,15 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 require('dotenv').config();
 
-const Petshop = require('./models/petshops');
 const petshopRoutes = require('./routes/petshopRoutes');
 
 const app = express(); //initializes express app
 
 const dbURL = process.env.DATABASE_URL;
-
 const port = process.env.PORT || 3000;
 
 // connects to database
@@ -28,8 +28,5 @@ connectToDb();
 // middlewares
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors());
 app.use(petshopRoutes);
-
-// app.get('/', (req, res) => {
-//   res.end('hello')
-// })
